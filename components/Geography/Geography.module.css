@@ -1,0 +1,133 @@
+.section {
+  padding: 36px 0 28px;
+}
+
+.note {
+  margin-bottom: 18px;
+  padding: 16px 18px;
+  border: 2px solid #d5e2f4;
+  border-radius: 20px;
+  background-color: rgba(255, 252, 245, 0.8);
+}
+
+.note p {
+  color: var(--akcent-2);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--akcent-2);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mark {
+  width: 22px;
+  height: 16px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.country {
+  background-color: #d7ebf8;
+}
+
+.region {
+  background-color: #7eb6e8;
+}
+
+.district {
+  background-color: #1d4e9e;
+}
+
+.cities,
+.town {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.cities {
+  background: radial-gradient(circle at 35% 35%, #fff, #7ec8ff 45%, #1d4e9e);
+}
+
+.town {
+  background: radial-gradient(circle at 35% 35%, #fff6d0, var(--akcent));
+}
+
+.routes {
+  width: 28px;
+  height: 10px;
+  background: none;
+  border-top: 2px dashed var(--akcent-2);
+  border-radius: 0;
+  position: relative;
+}
+
+.routes::before {
+  content: "‹";
+  position: absolute;
+  top: -11px;
+  left: -2px;
+  color: var(--akcent-2);
+  font-size: 16px;
+}
+
+.mapFrame {
+  display: block;
+  min-width: 0;
+}
+
+.map {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 48px 0 40px;
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .legend {
+    margin-bottom: 0;
+  }
+
+  .map {
+    height: 320px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    padding: 64px 0 48px;
+  }
+
+  .map {
+    height: 380px;
+  }
+
+  .note p,
+  .legendItem {
+    font-size: 16px;
+  }
+}

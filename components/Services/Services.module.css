@@ -1,0 +1,226 @@
+.section {
+  padding: 36px 0px;
+  background: linear-gradient(180deg, #fbf3de 50.04%, #fff 100%);
+}
+
+.folder {
+  position: relative;
+}
+
+.tabs {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+}
+
+.tab {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  max-width: 48%;
+  height: 52px;
+  margin: 0 0 -2px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--white);
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.cap {
+  display: block;
+  flex: 0 0 auto;
+  height: 100%;
+  width: auto;
+  overflow: visible;
+}
+
+.mid {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  background-color: var(--akcent-2);
+  box-shadow: inset 0 2px 0 var(--akcent);
+}
+
+.tab > .cap + .mid,
+.tab > .mid + .cap {
+  margin-left: -1px;
+}
+
+.tabHome .mid {
+  padding: 0 4px 2px 2px;
+}
+
+.tabBusiness .mid {
+  padding: 0 2px 2px 4px;
+}
+
+.tabFill {
+  fill: var(--akcent-2);
+}
+
+.tabStroke {
+  fill: none;
+  stroke: var(--akcent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+  stroke-linecap: butt;
+  vector-effect: non-scaling-stroke;
+}
+
+.tabText {
+  position: relative;
+  z-index: 1;
+  white-space: nowrap;
+}
+
+.tabActive {
+  z-index: 3;
+}
+
+.tab:not(.tabActive)::after {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--akcent);
+  pointer-events: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 0;
+  padding: 14px 12px 12px;
+  border: 2px solid var(--akcent);
+  border-radius: 0 0 28px 28px;
+  background-color: var(--akcent-2);
+  box-shadow: 0 16px 28px rgba(2, 45, 124, 0.16);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  min-height: 248px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.cardBody {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 48px 8px 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 28, 80, 0) 0%,
+    rgba(2, 28, 80, 0.82) 46%,
+    rgba(2, 20, 60, 0.94) 100%
+  );
+  color: var(--white);
+  text-align: center;
+}
+
+.cardTitle {
+  margin-bottom: 4px;
+  font-family: var(--second-family);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.cardText {
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 48px 0 36px;
+  }
+
+  .tab {
+    max-width: none;
+    height: 56px;
+    font-size: 20px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .card {
+    min-height: 300px;
+    border-radius: 16px;
+  }
+
+  .cardTitle {
+    font-size: 16px;
+  }
+
+  .cardText {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    padding: 64px 0 48px;
+  }
+
+  .tab {
+    height: 60px;
+    font-size: 22px;
+  }
+
+  .card {
+    min-height: 360px;
+    border-radius: 18px;
+  }
+
+  .cardBody {
+    padding: 72px 16px 18px;
+  }
+
+  .cardTitle {
+    font-size: 20px;
+  }
+
+  .cardText {
+    font-size: 15px;
+  }
+}

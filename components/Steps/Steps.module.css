@@ -1,0 +1,141 @@
+.section {
+  padding: 36px 0 48px;
+  background-color: #16324f;
+  background-image:
+    linear-gradient(180deg, rgba(10, 28, 58, 0.28), rgba(10, 28, 58, 0.12)),
+    image-set(
+      url("/images/steps/mobile-1x.jpg") 1x,
+      url("/images/steps/mobile-2x.jpg") 2x
+    );
+  background-position: center;
+  background-size: cover;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-right: 28px;
+}
+
+.list::before {
+  content: "";
+  position: absolute;
+  top: 28px;
+  right: 7px;
+  bottom: 28px;
+  width: 3px;
+  background: linear-gradient(180deg, #8ec5ff, #022d7c);
+}
+
+.item {
+  position: relative;
+}
+
+.card {
+  padding: 16px 16px 18px;
+  border: 2px solid #d7e4f5;
+  border-radius: 20px;
+  background-color: rgba(255, 250, 240, 0.94);
+}
+
+.cardTitle {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+  color: var(--akcent-2);
+  font-family: var(--second-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.cardTitle span {
+  color: var(--akcent);
+  font-size: 22px;
+}
+
+.cardText {
+  color: var(--akcent-2);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.dot {
+  position: absolute;
+  top: 50%;
+  right: -28px;
+  width: 18px;
+  height: 18px;
+  border: 3px solid var(--white);
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #fff, #5eb0ff 42%, #022d7c 70%);
+  transform: translateY(-50%);
+  box-shadow: 0 0 0 4px rgba(94, 176, 255, 0.35);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 56px 0 64px;
+    background-image:
+      linear-gradient(180deg, rgba(10, 28, 58, 0.25), rgba(10, 28, 58, 0.12)),
+      image-set(
+        url("/images/steps/tablet-1x.jpg") 1x,
+        url("/images/steps/tablet-2x.jpg") 2x
+      );
+  }
+
+  .cardTitle {
+    font-size: 20px;
+  }
+
+  .cardText {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .section {
+    padding: 72px 0 80px;
+    background-image:
+      linear-gradient(180deg, rgba(10, 28, 58, 0.25), rgba(10, 28, 58, 0.12)),
+      image-set(
+        url("/images/steps/desktop-1x.jpg") 1x,
+        url("/images/steps/desktop-2x.jpg") 2x
+      );
+  }
+
+  .list {
+    display: grid;
+    grid-template-columns: 1fr 56px 1fr;
+    gap: 28px 0;
+    padding-right: 0;
+  }
+
+  .list::before {
+    top: 40px;
+    right: auto;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .item:nth-child(odd) {
+    grid-column: 1;
+  }
+
+  .item:nth-child(even) {
+    grid-column: 3;
+  }
+
+  .item:nth-child(odd) .dot {
+    right: -37px;
+  }
+
+  .item:nth-child(even) .dot {
+    right: auto;
+    left: -37px;
+  }
+}

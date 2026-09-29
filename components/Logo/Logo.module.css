@@ -1,0 +1,59 @@
+.wheel {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@media (min-width: 1440px) {
+  .mark {
+    animation: nudge 2.4s ease-in-out infinite;
+  }
+
+  .mark.driving {
+    animation: none;
+  }
+
+  .wheel {
+    animation: spin 1.4s linear infinite;
+  }
+
+  .driving .wheel {
+    animation-duration: 0.28s;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mark,
+  .wheel {
+    animation: none;
+  }
+}
+
+@keyframes nudge {
+  0%,
+  24% {
+    transform: translateX(0);
+  }
+
+  32% {
+    transform: translateX(8px);
+  }
+
+  40% {
+    transform: translateX(-2px);
+  }
+
+  46% {
+    transform: translateX(3px);
+  }
+
+  54%,
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

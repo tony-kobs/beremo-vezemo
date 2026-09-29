@@ -1,0 +1,32 @@
+.button {
+  display: inline-flex;
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: var(--akcent-2);
+  border-radius: 32px;
+  box-shadow: 6px 6px 12px 0 rgba(69, 50, 1, 0.25);
+  background: linear-gradient(90deg, #ffc93c 0%, #e7a701 100%);
+  transition: background-color 0.2s ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: #ffc233;
+}
+
+.button:active {
+  background-color: #d99c00;
+}
+
+.wide {
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .wide {
+    width: auto;
+  }
+}
