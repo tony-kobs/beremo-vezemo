@@ -1,5 +1,4 @@
 import { extraServices } from "@/data/site";
-import SectionHeading from "@/components/SectionHeading/SectionHeading";
 import CallButton from "@/components/CallButton/CallButton";
 import styles from "./Extra.module.css";
 
@@ -7,10 +6,13 @@ export default function Extra() {
   return (
     <section className={styles.section} id="extra">
       <div className="container">
-      <SectionHeading
-        title="Не лише веземо"
-        text="Допоможемо з вантажем до та після перевезення."
-      />
+      <div className={styles.heading}>
+        <div className={styles.bar}>
+          <img className={styles.shape} src="/images/titles/plate-left.svg" alt="" />
+          <h2 className={styles.title}>Не лише веземо</h2>
+        </div>
+        <p className={styles.lead}>Допоможемо з вантажем до та після перевезення.</p>
+      </div>
 
       <ul className={styles.list}>
         {extraServices.map((item) => (

@@ -1,17 +1,19 @@
 import { steps } from "@/data/site";
-import SectionHeading from "@/components/SectionHeading/SectionHeading";
 import styles from "./Steps.module.css";
 
 export default function Steps() {
   return (
     <section className={styles.section} id="steps">
       <div className="container">
-      <SectionHeading
-        light
-        mirror
-        title="Чотири кроки — і поїхали!"
-        text="Як це працює? Все просто: телефонуєте, розповідаєте, узгоджуємо."
-      />
+      <div className={styles.heading}>
+        <div className={styles.bar}>
+          <img className={styles.shape} src="/images/titles/plate-left.svg" alt="" />
+          <h2 className={styles.title}>Чотири кроки і поїхали</h2>
+        </div>
+        <p className={styles.lead}>
+          Як це працює? Все просто: телефонуєте, розповідаєте, узгоджуємо.
+        </p>
+      </div>
 
       <ol className={styles.list}>
         {steps.map((step) => (

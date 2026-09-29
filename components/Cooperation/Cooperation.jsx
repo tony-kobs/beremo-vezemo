@@ -1,6 +1,5 @@
 import { cooperation } from "@/data/site";
 import { BoxIcon, CartIcon, TruckIcon } from "@/components/Icons/Icons";
-import SectionHeading from "@/components/SectionHeading/SectionHeading";
 import CallButton from "@/components/CallButton/CallButton";
 import styles from "./Cooperation.module.css";
 
@@ -14,11 +13,13 @@ export default function Cooperation() {
   return (
     <section className={styles.section} id="service">
       <div className={`container ${styles.inner}`}>
-      <SectionHeading
-        mirror
-        title="Постійна співпраця"
-        text="Доставка, на яку може розраховувати ваш бізнес"
-      />
+      <div className={styles.intro}>
+        <div className={styles.bar}>
+          <img className={styles.shape} src="/images/titles/plate-left.svg" alt="" />
+          <h2 className={styles.title}>Постійна співпраця</h2>
+        </div>
+        <p className={styles.lead}>Доставка, на яку може розраховувати ваш бізнес</p>
+      </div>
 
       <ul className={styles.list}>
         {cooperation.map((item) => {

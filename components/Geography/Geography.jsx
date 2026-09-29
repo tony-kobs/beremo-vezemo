@@ -1,12 +1,17 @@
 import { legend } from "@/data/site";
-import SectionHeading from "@/components/SectionHeading/SectionHeading";
 import styles from "./Geography.module.css";
 
 export default function Geography() {
   return (
     <section className={styles.section} id="geography">
       <div className="container">
-      <SectionHeading title="Географія перевезень" text="Веземо поруч і далі" />
+      <div className={styles.heading}>
+        <div className={styles.bar}>
+          <img className={styles.shape} src="/images/titles/plate-left.svg" alt="" />
+          <h2 className={styles.title}>Географія перевезень</h2>
+        </div>
+        <p className={styles.lead}>Веземо поруч і далі</p>
+      </div>
 
       <div className={styles.layout}>
         <div>
