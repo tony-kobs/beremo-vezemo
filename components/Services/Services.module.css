@@ -180,13 +180,21 @@
 
 @media (min-width: 768px) {
   .section {
-    padding: 48px 0 36px;
+    padding: 32px 0 53px;
+  }
+
+  .container {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 768px;
+    margin: 0 auto;
   }
 
   .tab {
-    max-width: none;
+    width: 100%;
+    max-width: 321px;
     height: 56px;
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .grid {
@@ -211,29 +219,46 @@
 
 @media (min-width: 1440px) {
   .section {
-    padding: 64px 0 48px;
+    padding: 72px 0px;
+  }
+
+  .container {
+    padding: 0 45px;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .folder {
+    min-height: 767px;
+    height: 100%;
   }
 
   .tab {
-    height: 60px;
-    font-size: 22px;
+    height: 122px;
+    font-size: 36px;
+    max-width: 610px;
+  }
+
+  .grid {
+    padding: 72px 35px;
   }
 
   .card {
-    min-height: 360px;
+    min-height: 512px;
     border-radius: 18px;
   }
 
   .cardBody {
-    padding: 72px 16px 18px;
+    padding: 72px 20px 38px;
   }
 
   .cardTitle {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .cardText {
-    font-size: 15px;
+    font-size: 20px;
   }
 }
 
@@ -322,6 +347,7 @@
 @media (min-width: 1440px) {
   .heading {
     gap: 32px;
+    margin-bottom: 52px;
   }
 
   .bar,

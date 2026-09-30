@@ -138,31 +138,60 @@
 
 @media (min-width: 768px) {
   .section {
-    padding: 48px 0 40px;
+    padding: 32px 0 52px;
+  }
+
+  .item,
+  .accent {
+    padding: 24px 22px;
+    gap: 20px;
   }
 
   .itemTitle {
-    font-size: 18px;
+    font-size: 24px;
+  }
+
+  .itemText {
+    font-size: 20px;
+  }
+
+  .icon {
+    width: 124px;
+    height: 124px;
+  }
+
+  .icon svg {
+    width: 100px;
+    height: 100px;
   }
 
   .photo {
-    height: 420px;
+    margin-top: 62px;
+    height: 507px;
+  }
+
+  .cta {
+    margin-top: 28px;
   }
 
   .ctaTitle {
-    font-size: 26px;
+    font-size: 30px;
+  }
+
+  .ctaText {
+    font-size: 24px;
   }
 }
 
 @media (min-width: 1440px) {
   .section {
-    padding: 64px 0 56px;
+    padding: 72px 0px;
   }
 
   .inner {
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 28px 40px;
+    gap: 25px 40px;
   }
 
   .inner > :first-child {
@@ -172,6 +201,34 @@
   .list,
   .cta {
     grid-column: 1;
+  }
+
+  .list {
+    gap: 40px;
+  }
+
+  .item,
+  .accent {
+    padding: 24px 22px;
+    gap: 20px;
+  }
+
+  .icon {
+    width: 124px;
+    height: 124px;
+  }
+
+  .icon svg {
+    width: 100px;
+    height: 100px;
+  }
+
+  .itemTitle {
+    font-size: 24px;
+  }
+
+  .itemText {
+    font-size: 20px;
   }
 
   .photo {
@@ -186,6 +243,20 @@
     align-items: flex-start;
     margin-top: 8px;
     text-align: left;
+  }
+
+  .ctaTitle {
+    font-size: 30px;
+  }
+
+  .ctaText {
+    font-size: 24px;
+  }
+
+  .ctaButton {
+    padding: 16px 0px;
+    max-width: 344px;
+    margin: 0;
   }
 }
 
@@ -249,8 +320,8 @@
 
   .bar,
   .lead {
-    width: 646px;
-    margin-left: -32px;
+    width: 671px;
+    margin-left: -55px;
   }
 
   .bar {
@@ -272,12 +343,13 @@
 @media (min-width: 1440px) {
   .intro {
     gap: 32px;
+    margin-bottom: 52px;
   }
 
   .bar,
   .lead {
-    width: 926px;
-    margin-left: -80px;
+    width: 983px;
+    margin-left: -104px;
   }
 
   .bar {

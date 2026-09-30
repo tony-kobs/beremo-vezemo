@@ -10,9 +10,25 @@
   gap: 12px;
 }
 
+.top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 35px;
+}
+
+.colBrand,
+.colInfo {
+  display: contents;
+}
+
+.navColumns {
+  display: none;
+}
+
 .brand {
   display: flex;
   flex-direction: column;
+  grid-column: 1 / -1;
   width: fit-content;
   color: var(--white);
   text-decoration: none;
@@ -28,15 +44,9 @@
   fill: var(--white);
 }
 
-.navGrid,
-.infoGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px 35px;
-}
-
 .places,
-.links {
+.links,
+.linksFlat {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -46,7 +56,8 @@
 }
 
 .places li,
-.links a {
+.links a,
+.linksFlat a {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 12px;
@@ -55,7 +66,8 @@
   color: var(--white);
 }
 
-.infoGrid p,
+.hours p,
+.contacts p,
 .phone {
   font-family: var(--font-family);
   font-weight: 400;
@@ -67,6 +79,8 @@
 
 .links a:hover,
 .links a:focus-visible,
+.linksFlat a:hover,
+.linksFlat a:focus-visible,
 .phone:hover,
 .phone:focus-visible,
 .messenger:hover,
@@ -134,7 +148,38 @@ p.columnTitle {
   }
 
   .inner {
-    gap: 28px;
+    gap: 24px;
+  }
+
+  .top {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px 32px;
+    align-items: start;
+  }
+
+  .colBrand,
+  .colInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .colBrand {
+    grid-column: 1;
+    gap: 16px;
+  }
+
+  .colInfo {
+    grid-column: 2;
+    gap: 20px;
+  }
+
+  .colNav {
+    grid-column: 3;
+    justify-self: start;
+  }
+
+  .brand {
+    grid-column: auto;
   }
 
   .brand svg {
@@ -142,26 +187,26 @@ p.columnTitle {
     height: 50px;
   }
 
-  .tagline {
-    max-width: 280px;
-    font-size: 14px;
-  }
-
-  .navGrid,
-  .infoGrid {
-    gap: 24px 40px;
-    max-width: 560px;
-  }
-
   .places li,
   .links a,
-  .infoGrid p,
+  .linksFlat a,
+  .hours p,
+  .contacts p,
   .phone {
     font-size: 15px;
   }
 
-  .columnTitle {
+  p.columnTitle {
     font-size: 18px;
+  }
+
+  .messengers {
+    gap: 28px;
+  }
+
+  .copy {
+    padding-top: 12px;
+    font-size: 14px;
   }
 }
 
@@ -170,8 +215,77 @@ p.columnTitle {
     padding: 48px 0 28px;
   }
 
-  .navGrid,
-  .infoGrid {
-    max-width: 640px;
+  .inner {
+    gap: 28px;
+  }
+
+  .top {
+    grid-template-columns: 1.35fr repeat(4, minmax(0, 1fr));
+    gap: 32px 40px;
+    align-items: start;
+  }
+
+  .colBrand {
+    grid-column: 1;
+    gap: 20px;
+  }
+
+  .colNav,
+  .colInfo,
+  .navColumns {
+    display: contents;
+  }
+
+  .linksFlat {
+    display: none;
+  }
+
+  .navColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hours,
+  .contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .brand svg {
+    width: 160px;
+    height: 56px;
+  }
+
+  .places li,
+  .links a,
+  .hours p,
+  .contacts p,
+  .phone {
+    font-size: 16px;
+  }
+
+  p.columnTitle {
+    margin: 0 0 4px;
+    font-size: 20px;
+  }
+
+  .phone {
+    margin-bottom: 12px;
+  }
+
+  .messengers {
+    gap: 32px;
+  }
+
+  .messenger svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .copy {
+    padding-top: 16px;
+    font-size: 16px;
   }
 }

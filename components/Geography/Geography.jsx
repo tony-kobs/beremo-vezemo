@@ -56,7 +56,7 @@ export default function Geography() {
         </div>
 
         <div className={styles.layout}>
-          <div>
+          <div className={styles.content}>
             <article className={styles.note}>
               <h3 className={styles.noteTitle}>Доставляємо вантаж</h3>
               <p>

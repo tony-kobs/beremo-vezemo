@@ -1,16 +1,13 @@
 .hero {
   position: relative;
   display: flex;
-  min-height: 700px;
   padding: 130px 0px 130px;
   overflow: hidden;
   background-color: #123;
-  background-image:
-    linear-gradient(180deg, rgba(0, 4, 28, 0.3), rgba(0, 20, 130, 0)),
-    image-set(
-      url("/images/hero/mobile-1x.jpg") 1x,
-      url("/images/hero/mobile-2x.jpg") 2x
-    );
+  background-image: image-set(
+    url("/images/hero/mobile-1x.jpg") 1x,
+    url("/images/hero/mobile-2x.jpg") 2x
+  );
   background-position:
     center,
     center 32%;
@@ -117,19 +114,11 @@
 @media (min-width: 768px) {
   .hero {
     align-items: center;
-    min-height: 720px;
-    padding: 120px 0 72px;
-    background-image:
-      linear-gradient(
-        90deg,
-        rgba(8, 24, 48, 0.46),
-        rgba(8, 24, 48, 0.08) 52%,
-        rgba(8, 24, 48, 0)
-      ),
-      image-set(
-        url("/images/hero/tablet-1x.jpg") 1x,
-        url("/images/hero/tablet-2x.jpg") 2x
-      );
+    padding: 325px 0 146px;
+    background-image: image-set(
+      url("/images/hero/tablet-1x.jpg") 1x,
+      url("/images/hero/tablet-2x.jpg") 2x
+    );
     background-position:
       center,
       36% center;
@@ -139,17 +128,17 @@
     flex: 0 1 auto;
     align-items: flex-start;
     justify-content: center;
-    max-width: 520px;
+    max-width: 640px;
     text-align: left;
   }
 
   .title {
-    font-size: 48px;
+    font-size: 60px;
   }
 
   .text {
-    max-width: 460px;
-    font-size: 18px;
+    max-width: 580px;
+    font-size: 24px;
   }
 
   .messengers {
@@ -157,7 +146,8 @@
   }
 
   .messenger {
-    font-size: 16px;
+    font-size: 20px;
+    gap: 12px;
   }
 
   .messenger svg {
@@ -168,8 +158,7 @@
 
 @media (min-width: 1440px) {
   .hero {
-    min-height: 760px;
-    padding: 140px 0 90px;
+    padding: 180px 0 160px;
     background-image:
       linear-gradient(
         90deg,
@@ -187,10 +176,21 @@
   }
 
   .content {
-    max-width: 640px;
+    max-width: 633px;
+    justify-content: center;
+  }
+
+  .copy {
+    margin-bottom: 68px;
   }
 
   .title {
     font-size: 60px;
+    margin-bottom: 32px;
+  }
+
+  .text {
+    font-size: 24px;
+    max-width: 551px;
   }
 }

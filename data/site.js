@@ -155,7 +155,7 @@ export const footerColumns = [
     ],
   },
   {
-    title: "Компанія",
+    title: "Сервіс",
     links: [
       { href: "#service", label: "Сервіс" },
       { href: "#steps", label: "Як працюємо" },

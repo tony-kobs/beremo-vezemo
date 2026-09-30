@@ -170,32 +170,74 @@
 
 @media (min-width: 768px) {
   .section {
-    padding: 48px 0 40px;
+    padding: 32px 0 52px;
   }
 
-  .layout {
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 24px;
-    align-items: center;
+  .note {
+    padding: 20px 44px;
+    margin-bottom: 47px;
+  }
+
+  .noteTitle {
+    font-size: 24px;
+  }
+
+  .note p {
+    font-size: 20px;
   }
 
   .legend {
-    margin-bottom: 0;
+    margin-bottom: 24px;
+    gap: 16px;
+  }
+
+  .legendItem {
+    font-size: 24px;
+    gap: 49px;
+  }
+
+  .mark {
+    width: 40px;
+    height: 40px;
   }
 
   .map {
-    height: 320px;
+    max-height: 495px;
+    height: 100%;
   }
 }
 
 @media (min-width: 1440px) {
   .section {
-    padding: 64px 0 48px;
+    padding: 72px 0px;
   }
 
-  .map {
-    height: 380px;
+  .layout {
+    display: flex;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    max-width: 519px;
+    flex-grow: 1;
+  }
+
+  .mapFrame {
+    width: 100%;
+    max-width: 730px;
+    max-height: 490px;
+    border-radius: 32px;
+    flex-grow: 1;
+  }
+
+  .map img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 
   .note p,
@@ -289,6 +331,7 @@
 @media (min-width: 1440px) {
   .heading {
     gap: 32px;
+    margin-bottom: 52px;
   }
 
   .bar,
