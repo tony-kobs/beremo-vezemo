@@ -1,6 +1,13 @@
 .section {
-  padding: 36px 0px;
+  padding: 36px 0px 32px;
   background: linear-gradient(180deg, #fbf3de 50.04%, #fff 100%);
+}
+
+.container {
+  padding: 0 10px;
+  width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
 }
 
 .folder {
@@ -29,8 +36,8 @@
   color: var(--white);
   font-family: var(--second-family);
   font-weight: 600;
-  font-size: 14px;
-  line-height: 1.2;
+  font-size: 18px;
+  line-height: 1.4;
 }
 
 .cap {
@@ -104,7 +111,7 @@
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   margin: 0;
-  padding: 14px 12px 12px;
+  padding: 14px 5px 28px;
   border: 2px solid var(--akcent);
   border-radius: 0 0 28px 28px;
   background-color: var(--akcent-2);
@@ -115,9 +122,11 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  min-height: 248px;
+  min-height: 308px;
+  min-width: 164px;
   overflow: hidden;
-  border-radius: 18px;
+  border-radius: 16px;
+  padding: 32px 8px 20px;
 }
 
 .card::after {
@@ -127,6 +136,11 @@
   z-index: 2;
   border-radius: inherit;
   pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(102, 102, 102, 0) 42.31%,
+    rgba(2, 45, 124, 0.8) 76.92%
+  );
 }
 
 .card img {
@@ -140,30 +154,28 @@
 
 .cardBody {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   width: 100%;
-  padding: 48px 8px 12px;
-  background: linear-gradient(
-    180deg,
-    rgba(2, 28, 80, 0) 0%,
-    rgba(2, 28, 80, 0.82) 46%,
-    rgba(2, 20, 60, 0.94) 100%
-  );
   color: var(--white);
   text-align: center;
 }
 
 .cardTitle {
-  margin-bottom: 4px;
   font-family: var(--second-family);
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
 }
 
 .cardText {
-  font-size: 12px;
-  line-height: 1.35;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.38;
+  letter-spacing: 0.02em;
 }
 
 @media (min-width: 768px) {

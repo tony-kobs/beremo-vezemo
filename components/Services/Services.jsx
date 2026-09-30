@@ -27,7 +27,7 @@ export default function Services() {
 
   return (
     <section className={styles.section} id="services">
-      <div className="container">
+      <div className={styles.container}>
         <div className={styles.heading}>
           <div className={styles.bar}>
             <img

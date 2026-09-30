@@ -5,15 +5,15 @@ export default function FinalCta() {
   return (
     <section className={styles.section}>
       <div className="container">
-      <h2 className={styles.title}>
-        Треба перевезти?
-        <span>Беремо й веземо.</span>
-      </h2>
-      <p className={styles.text}>
-        Розкажіть, що потрібно перевезти та куди — узгодимо деталі й домовимося
-        про поїздку.
-      </p>
-      <CallButton wide />
+        <h2 className={styles.title}>
+          Треба перевезти?
+          <span>Беремо й веземо.</span>
+        </h2>
+        <p className={styles.text}>
+          Розкажіть, що потрібно перевезти та куди — узгодимо деталі й
+          домовимося про поїздку.
+        </p>
+        <CallButton className={styles.button} wide />
       </div>
     </section>
   );

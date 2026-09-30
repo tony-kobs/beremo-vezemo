@@ -10,6 +10,7 @@
   box-shadow: 6px 6px 12px 0 rgba(69, 50, 1, 0.25);
   background: linear-gradient(90deg, #ffc93c 0%, #e7a701 100%);
   transition: background-color 0.2s ease;
+  text-align: center;
 }
 
 .button:hover,

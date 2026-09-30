@@ -1,99 +1,171 @@
 .section {
-  padding: 36px 0 28px;
+  padding: 29px 0 38px;
+  background: linear-gradient(110.69deg, #f9ebc5 2.91%, #fff 99.83%);
 }
 
 .note {
-  margin-bottom: 18px;
-  padding: 16px 18px;
-  border: 2px solid #d5e2f4;
-  border-radius: 20px;
-  background-color: rgba(255, 252, 245, 0.8);
+  margin-bottom: 32px;
+  border: 1px solid var(--akcent-2);
+  border-radius: 32px;
+  box-shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
+  background: linear-gradient(95.57deg, #fff 3.98%, #fbf3de 94.87%);
+  padding: 20px;
+}
+
+.noteTitle {
+  margin-bottom: 8px;
+  font-family: var(--second-family);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: var(--akcent-2);
 }
 
 .note p {
-  color: var(--akcent-2);
-  font-size: 15px;
-  line-height: 1.45;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 138%;
+  letter-spacing: 0.02em;
+  color: var(--black);
 }
 
 .legend {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin-bottom: 18px;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 .legendItem {
   display: flex;
   align-items: center;
   gap: 12px;
-  color: var(--akcent-2);
-  font-size: 15px;
+  font-family: var(--second-family);
   font-weight: 600;
+  font-size: 20px;
+  line-height: 140%;
+  letter-spacing: 0.02em;
+  color: var(--black);
 }
 
 .mark {
-  width: 22px;
-  height: 16px;
-  border-radius: 3px;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  box-shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
+  border: 1px solid var(--akcent-2);
   flex-shrink: 0;
 }
 
 .country {
-  background-color: #d7ebf8;
+  background: #cbe8fc;
 }
 
 .region {
-  background-color: #7eb6e8;
+  background: #68b4fc;
 }
 
 .district {
-  background-color: #1d4e9e;
+  background: #026fe9;
 }
 
 .cities,
 .town {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 100%;
+  background: var(--white);
 }
 
 .cities {
-  background: radial-gradient(circle at 35% 35%, #fff, #7ec8ff 45%, #1d4e9e);
+  box-shadow:
+    inset -1px -1px 9px 0 rgba(0, 46, 84, 0.14),
+    inset 3px 3px 4px 0 var(--white),
+    3px 4px 8px 2px #3580c7;
 }
 
 .town {
-  background: radial-gradient(circle at 35% 35%, #fff6d0, var(--akcent));
+  box-shadow:
+    inset -1px -1px 9px 0 rgba(0, 46, 84, 0.14),
+    inset 3px 3px 4px 0 var(--white),
+    2px 2px 8px 4px #dba600;
+}
+
+.markInner {
+  display: block;
+  width: 24px;
+  height: 24px;
+  border-radius: 100%;
+  box-shadow:
+    inset -1px -1px 4px 0 rgba(0, 46, 84, 0.38),
+    inset 1px 1px 4px 0 rgba(255, 255, 255, 0.69),
+    1px 1px 4px -1px rgba(5, 56, 145, 0.25);
+}
+
+.cities .markInner {
+  background: radial-gradient(
+    52.24% 57.63% at 48.88% 47.77%,
+    #fdfeff 0%,
+    #70bbfd 100%
+  );
+  box-shadow:
+    inset -1px -1px 4px 0 rgba(0, 46, 84, 0.38),
+    inset 1px 1px 4px 0 rgba(255, 255, 255, 0.69),
+    1px 1px 4px -1px rgba(5, 56, 145, 0.25),
+    0 0 0 0.2px #0883ee;
+}
+
+.town .markInner {
+  background: radial-gradient(
+    52.24% 57.63% at 48.88% 47.77%,
+    #fae5b0 0%,
+    #eaaa02 100%
+  );
+  box-shadow:
+    inset -1px -1px 4px 0 rgba(0, 46, 84, 0.38),
+    inset 1px 1px 4px 0 rgba(255, 255, 255, 0.69),
+    1px 1px 4px -1px rgba(5, 56, 145, 0.25),
+    0 0 0 0.2px #906c10;
 }
 
 .routes {
-  width: 28px;
-  height: 10px;
-  background: none;
-  border-top: 2px dashed var(--akcent-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 16px;
+  border: none;
   border-radius: 0;
-  position: relative;
+  background: none;
+  box-shadow: none;
+  color: var(--akcent-2);
 }
 
-.routes::before {
-  content: "‹";
-  position: absolute;
-  top: -11px;
-  left: -2px;
-  color: var(--akcent-2);
-  font-size: 16px;
+.routesIcon {
+  display: block;
+  width: 42px;
+  height: 16px;
 }
 
 .mapFrame {
   display: block;
   min-width: 0;
+  overflow: hidden;
+  border-radius: 24px;
+  box-shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
 }
 
 .map {
+  display: block;
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-radius: 24px;
 }
 
 @media (min-width: 768px) {
@@ -137,7 +209,7 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .bar {
@@ -148,7 +220,7 @@
   position: absolute;
   z-index: 0;
   top: 0;
-  left: calc(50% - 50vw - 6.13vw);
+  left: calc(50% - 50vw - 1.13vw);
   width: calc(100vw + 6.13vw);
   height: 62px;
   max-width: none;

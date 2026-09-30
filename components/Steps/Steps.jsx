@@ -5,9 +5,13 @@ export default function Steps() {
   return (
     <section className={styles.section} id="steps">
       <div className="container">
-      <div className={styles.heading}>
+      <div className={styles.intro}>
         <div className={styles.bar}>
-          <img className={styles.shape} src="/images/titles/plate-left.svg" alt="" />
+          <img
+            className={styles.shape}
+            src="/images/titles/plate-left.svg"
+            alt=""
+          />
           <h2 className={styles.title}>Чотири кроки і поїхали</h2>
         </div>
         <p className={styles.lead}>
@@ -25,7 +29,16 @@ export default function Steps() {
               </h3>
               <p className={styles.cardText}>{step.text}</p>
             </article>
-            <span className={styles.dot} aria-hidden="true" />
+            <svg className={styles.arrow} aria-hidden="true">
+              <use href="/images/icons/sprite.svg#steps-arrow" />
+            </svg>
+            <span className={styles.dot} aria-hidden="true">
+              <span className={styles.dotLayer}>
+                <span className={styles.dotMid}>
+                  <span className={styles.dotCore} />
+                </span>
+              </span>
+            </span>
           </li>
         ))}
       </ol>
