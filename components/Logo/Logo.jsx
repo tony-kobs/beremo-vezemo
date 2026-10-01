@@ -1,5 +1,3 @@
-"use client";
-
 import styles from "./Logo.module.css";
 
 export default function Logo({ driving = false }) {

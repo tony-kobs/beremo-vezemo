@@ -1,13 +1,6 @@
 import CallButton from "@/components/CallButton/CallButton";
-import { TelegramIcon, ViberIcon, WhatsAppIcon } from "@/components/Icons/Icons";
-import { messengers } from "@/data/site";
+import Messengers from "@/components/Messengers/Messengers";
 import styles from "./Hero.module.css";
-
-const messengerIcons = {
-  telegram: TelegramIcon,
-  whatsapp: WhatsAppIcon,
-  viber: ViberIcon,
-};
 
 export default function Hero() {
   return (
@@ -26,20 +19,11 @@ export default function Hero() {
           </div>
           <div className={styles.actions}>
             <CallButton wide className={styles.callHero} />
-            <ul className={styles.messengers}>
-              {messengers.map((item) => {
-                const Icon = messengerIcons[item.id];
-
-                return (
-                  <li key={item.id}>
-                    <a className={styles.messenger} href={item.href} target="_blank" rel="noopener noreferrer">
-                      <Icon />
-                      {item.label}
-                    </a>
-                  </li>
-                );
-              })}
-            </ul>
+            <Messengers
+              className={styles.messengers}
+              itemClassName={styles.messenger}
+              showLabels
+            />
           </div>
         </div>
       </div>

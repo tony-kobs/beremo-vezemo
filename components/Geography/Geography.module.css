@@ -203,7 +203,12 @@
 
   .map {
     max-height: 495px;
+    border-radius: 32px;
     height: 100%;
+  }
+
+  .mapFrame {
+    border-radius: 32px;
   }
 }
 
@@ -258,17 +263,6 @@
   height: 48px;
 }
 
-.shape {
-  position: absolute;
-  z-index: 0;
-  top: 0;
-  left: calc(50% - 50vw - 1.13vw);
-  width: calc(100vw + 6.13vw);
-  height: 62px;
-  max-width: none;
-  pointer-events: none;
-}
-
 .title {
   position: relative;
   z-index: 1;
@@ -307,13 +301,6 @@
   .bar {
     position: relative;
     height: 80px;
-  }
-
-  .shape {
-    top: 0;
-    left: -6.13%;
-    width: 106.13%;
-    height: 129.17%;
   }
 
   .title {

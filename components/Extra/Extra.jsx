@@ -2,6 +2,7 @@
 
 import { extraServices } from "@/data/site";
 import CallButton from "@/components/CallButton/CallButton";
+import plate from "@/styles/titlePlate.module.css";
 import styles from "./Extra.module.css";
 
 const canFollowPointer = () =>
@@ -32,12 +33,9 @@ export default function Extra() {
     <section className={styles.section} id="extra">
       <div className="container">
         <div className={styles.heading}>
-          <div className={styles.bar}>
-            <img
-              className={styles.shape}
-              src="/images/titles/plate-left.svg"
-              alt=""
-            />
+          <div
+            className={`${styles.bar} ${plate.plateBase} ${plate.rightPlate}`}
+          >
             <h2 className={styles.title}>Не лише веземо</h2>
           </div>
           <p className={styles.lead}>

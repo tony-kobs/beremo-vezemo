@@ -5,14 +5,14 @@ import "./globals.css";
 
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
 });
 
 const montserrat = Montserrat_Alternates({
   subsets: ["latin", "cyrillic"],
-  weight: ["500", "600", "700"],
+  weight: ["500", "600"],
   variable: "--font-montserrat",
   display: "swap",
 });

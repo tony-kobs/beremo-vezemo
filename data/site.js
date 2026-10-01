@@ -4,19 +4,17 @@ export const phoneHref = "tel:+380686673937";
 const phoneIntl = "380686673937";
 
 export const messengers = [
-  { id: "telegram", label: "Telegram", href: `https://t.me/+${phoneIntl}` },
+  {
+    id: "telegram",
+    label: "Telegram",
+    href: `tg://resolve?phone=${phoneIntl}`,
+  },
   { id: "whatsapp", label: "WhatsApp", href: `https://wa.me/${phoneIntl}` },
-  { id: "viber", label: "Viber", href: `viber://chat?number=%2B${phoneIntl}` },
-];
-
-export const menu = [
-  { href: "#services", label: "Послуги" },
-  { href: "#business", label: "Бізнесу" },
-  { href: "#extra", label: "Додаткові послуги" },
-  { href: "#service", label: "Сервіс" },
-  { href: "#steps", label: "Як працюємо" },
-  { href: "#geography", label: "Географія" },
-  { href: "#contacts", label: "Контакти" },
+  {
+    id: "viber",
+    label: "Viber",
+    href: `viber://chat?number=%2B${phoneIntl}`,
+  },
 ];
 
 export const categories = [
@@ -36,7 +34,7 @@ export const categories = [
       },
       {
         title: "Будівельні матеріали",
-        text: "Матеріали, сантехніка, інструменти",
+        text: "Матеріали, сантехніка, інструменти.",
         image: "/images/services/materials.jpg",
       },
       {
@@ -93,7 +91,7 @@ export const cooperation = [
   {
     id: "fleet",
     title: "Не потрібно утримувати власний транспорт",
-    text: "Ми можемо взяти доставку ваших товарів клієнтам на себе. Це зручно, вигідно та надійно",
+    text: "Ми можемо взяти доставку ваших товарів клієнтам на себе. Це зручно, вигідно та надійно.",
     accent: true,
   },
 ];
@@ -162,4 +160,9 @@ export const footerColumns = [
       { href: "#geography", label: "Географія" },
     ],
   },
+];
+
+export const menu = [
+  ...footerColumns.flatMap((column) => column.links),
+  { href: "#contacts", label: "Контакти" },
 ];

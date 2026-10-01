@@ -1,4 +1,5 @@
 import { steps } from "@/data/site";
+import plate from "@/styles/titlePlate.module.css";
 import styles from "./Steps.module.css";
 
 export default function Steps() {
@@ -6,12 +7,9 @@ export default function Steps() {
     <section className={styles.section} id="steps">
       <div className="container">
       <div className={styles.intro}>
-        <div className={styles.bar}>
-          <img
-            className={styles.shape}
-            src="/images/titles/plate-left.svg"
-            alt=""
-          />
+        <div
+          className={`${styles.bar} ${plate.plateBase} ${plate.leftFlipped}`}
+        >
           <h2 className={styles.title}>Чотири кроки і поїхали</h2>
         </div>
         <p className={styles.lead}>

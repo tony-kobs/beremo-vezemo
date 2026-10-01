@@ -79,6 +79,8 @@
 
 .links a:hover,
 .links a:focus-visible,
+.columnTitle:hover,
+.columnTitle:focus-visible,
 .linksFlat a:hover,
 .linksFlat a:focus-visible,
 .phone:hover,
@@ -88,7 +90,7 @@
   color: var(--akcent);
 }
 
-p.columnTitle {
+.columnTitle {
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
@@ -196,7 +198,7 @@ p.columnTitle {
     font-size: 15px;
   }
 
-  p.columnTitle {
+  .columnTitle {
     font-size: 18px;
   }
 
@@ -266,7 +268,7 @@ p.columnTitle {
     font-size: 16px;
   }
 
-  p.columnTitle {
+  .columnTitle {
     margin: 0 0 4px;
     font-size: 20px;
   }

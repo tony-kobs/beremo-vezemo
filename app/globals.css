@@ -2,7 +2,6 @@
 
 :root {
   --white: #fff;
-  --error-red: #c93c3c;
   --akcent: #f0ae02;
   --akcent-2: #022d7c;
   --black: #000113;
@@ -14,6 +13,12 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* old Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
 }
 
 body {
@@ -83,17 +88,6 @@ footer {
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
-}
-
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  border: 0;
 }
 
 @media (min-width: 768px) {

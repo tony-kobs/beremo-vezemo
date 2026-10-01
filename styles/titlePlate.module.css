@@ -1,0 +1,66 @@
+/* plate-left.svg: path, gradient, inner highlight, drop shadow */
+
+.plateBase::before,
+.plateBase::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+  clip-path: polygon(13.37% 0, 100% 0, 100% 77.42%, 5.77% 77.42%);
+}
+
+.plateBase::before {
+  background: rgba(1, 43, 86, 0.25);
+  filter: blur(3px);
+}
+
+.plateBase::after {
+  background: linear-gradient(
+    90deg,
+    #f0ae02 0%,
+    #f0ae02 27.2%,
+    #0452e2 56.6%,
+    #022d7c 99.4%
+  );
+  box-shadow: inset 1px 1px 2px #fffefe;
+}
+
+/* Cooperation, Steps: bar on the left, slant on the right */
+.leftFlipped::before,
+.leftFlipped::after {
+  top: 0;
+  left: 24px;
+  width: 106.13%;
+  height: 129.17%;
+}
+
+.leftFlipped::before {
+  transform: scaleX(-1) translate(-16px, 8px);
+}
+
+.leftFlipped::after {
+  transform: scaleX(-1);
+}
+
+/* Services, Extra, Geography: bar on the right, slant on the left */
+.rightPlate::before,
+.rightPlate::after {
+  top: 0;
+  left: calc(50% - 50vw - 1.13vw);
+  width: calc(100vw + 6.13vw);
+  height: 62px;
+  max-width: none;
+}
+
+.rightPlate::before {
+  transform: translate(-16px, 8px);
+}
+
+@media (min-width: 768px) {
+  .rightPlate::before,
+  .rightPlate::after {
+    left: -6.13%;
+    width: 106.13%;
+    height: 129.17%;
+  }
+}

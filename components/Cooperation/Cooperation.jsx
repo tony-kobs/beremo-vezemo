@@ -1,5 +1,6 @@
 import { cooperation } from "@/data/site";
 import CallButton from "@/components/CallButton/CallButton";
+import plate from "@/styles/titlePlate.module.css";
 import styles from "./Cooperation.module.css";
 
 const icons = {
@@ -14,12 +15,9 @@ export default function Cooperation() {
     <section className={styles.section} id="service">
       <div className={`container ${styles.inner}`}>
         <div className={styles.intro}>
-          <div className={styles.bar}>
-            <img
-              className={styles.shape}
-              src="/images/titles/plate-left.svg"
-              alt=""
-            />
+          <div
+            className={`${styles.bar} ${plate.plateBase} ${plate.leftFlipped}`}
+          >
             <h2 className={styles.title}>Постійна співпраця</h2>
           </div>
           <p className={styles.lead}>
@@ -68,6 +66,8 @@ export default function Cooperation() {
             src="/images/cooperation/mobile-1x.jpg"
             srcSet="/images/cooperation/mobile-1x.jpg 1x, /images/cooperation/mobile-2x.jpg 2x"
             alt="Вантажники завантажують холодильник у бус біля магазину техніки"
+            loading="lazy"
+            decoding="async"
           />
         </picture>
       </div>

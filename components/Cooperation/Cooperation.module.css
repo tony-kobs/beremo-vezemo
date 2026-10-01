@@ -269,7 +269,7 @@
 
 .bar,
 .lead {
-  width: calc(100% + 34px);
+  width: calc(100% + 10px);
   margin-right: auto;
   margin-left: -42px;
 }
@@ -277,16 +277,6 @@
 .bar {
   position: relative;
   height: 48px;
-}
-
-.shape {
-  position: absolute;
-  top: 0;
-  left: 24px;
-  width: 106.13%;
-  height: 129.17%;
-  transform: scaleX(-1);
-  pointer-events: none;
 }
 
 .title {
