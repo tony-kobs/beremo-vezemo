@@ -1,5 +1,8 @@
 .button {
+  position: relative;
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-family: var(--second-family);
   font-weight: 600;
   font-size: 20px;
@@ -8,18 +11,97 @@
   color: var(--akcent-2);
   border-radius: 32px;
   box-shadow: 6px 6px 12px 0 rgba(69, 50, 1, 0.25);
-  background: linear-gradient(90deg, #ffc93c 0%, #e7a701 100%);
-  transition: background-color 0.2s ease;
+  background-image: linear-gradient(
+    90deg,
+    #ffc93c 0%,
+    #e7a701 35%,
+    #ffc93c 65%,
+    #e7a701 100%
+  );
+  background-size: 220% 100%;
+  background-position: 0% 50%;
+  background-color: #e7a701;
+  transition:
+    background-position 0.7s ease,
+    box-shadow 0.35s ease,
+    background-image 0.35s ease;
   text-align: center;
 }
 
-.button:hover,
-.button:focus-visible {
-  background-color: #ffc233;
+.labels {
+  display: inline-grid;
+  align-items: center;
+  justify-items: center;
 }
 
-.button:active {
-  background-color: #d99c00;
+.labelDefault,
+.labelHover,
+.labelActive {
+  grid-area: 1 / 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  white-space: nowrap;
+  transition: opacity 0.35s ease;
+}
+
+.labelHover,
+.labelActive {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.phoneIcon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.button:hover:not(.revealed),
+.button:focus-visible:not(.revealed) {
+  background-position: 100% 50%;
+  animation: callShimmer 1.6s ease-in-out infinite alternate;
+}
+
+.button:hover:not(.revealed) .labelDefault,
+.button:focus-visible:not(.revealed) .labelDefault {
+  opacity: 0;
+}
+
+.button:hover:not(.revealed) .labelHover,
+.button:focus-visible:not(.revealed) .labelHover {
+  opacity: 1;
+}
+
+.button:active:not(.revealed),
+.button.revealed {
+  animation: none;
+  box-shadow: 6px 6px 12px 0 rgba(69, 50, 1, 0.5);
+  background-image: linear-gradient(90deg, #f9b400 0%, #ed9701 100%);
+  background-size: 100% 100%;
+  background-position: 0% 50%;
+}
+
+.button:active:not(.revealed) .labelDefault,
+.button:active:not(.revealed) .labelHover,
+.button.revealed .labelDefault,
+.button.revealed .labelHover {
+  opacity: 0;
+}
+
+.button:active:not(.revealed) .labelActive,
+.button.revealed .labelActive {
+  opacity: 1;
+}
+
+@keyframes callShimmer {
+  from {
+    background-position: 0% 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
 }
 
 .wide {
@@ -29,5 +111,24 @@
 @media (min-width: 768px) {
   .wide {
     width: auto;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: box-shadow 0.2s ease;
+    animation: none;
+  }
+
+  .button:hover:not(.revealed),
+  .button:focus-visible:not(.revealed) {
+    animation: none;
+    background-position: 100% 50%;
+  }
+
+  .labelDefault,
+  .labelHover,
+  .labelActive {
+    transition: none;
   }
 }

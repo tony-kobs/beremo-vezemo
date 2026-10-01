@@ -89,8 +89,6 @@ a.headerCall {
   line-height: 163%;
   letter-spacing: 0.02em;
   color: var(--akcent-2);
-  box-shadow: 6px 6px 12px 0 rgba(69, 50, 1, 0.25);
-  background: linear-gradient(90deg, #ffc93c 0%, #e7a701 100%);
 }
 
 .burger {
