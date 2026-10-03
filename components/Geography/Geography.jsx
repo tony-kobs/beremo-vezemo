@@ -1,4 +1,5 @@
 import { legend } from "@/data/site";
+import heading from "@/styles/sectionHeading.module.css";
 import plate from "@/styles/titlePlate.module.css";
 import styles from "./Geography.module.css";
 
@@ -33,13 +34,15 @@ export default function Geography() {
   return (
     <section className={styles.section} id="geography">
       <div className="container">
-        <div className={styles.heading}>
-          <div
-            className={`${styles.bar} ${plate.plateBase} ${plate.rightPlate}`}
-          >
-            <h2 className={styles.title}>Географія перевезень</h2>
+        <div className={`${heading.block} ${heading.alignEnd} ${styles.heading}`}>
+          <div className={`${heading.bar} ${plate.plateBase} ${plate.rightPlate}`}>
+            <h2 className={`${heading.title} ${styles.title}`}>
+              Географія перевезень
+            </h2>
           </div>
-          <p className={styles.lead}>Веземо поруч і далі</p>
+          <p className={`${heading.lead} ${heading.leadAccent}`}>
+            Веземо поруч і далі
+          </p>
         </div>
 
         <div className={styles.layout}>

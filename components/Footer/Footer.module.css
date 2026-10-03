@@ -154,7 +154,7 @@
   .top {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .colBrand,
@@ -222,7 +222,7 @@
   .top {
     grid-template-columns: 1.35fr repeat(4, minmax(0, 1fr));
     gap: 32px 40px;
-    align-items: start;
+    align-items: flex-start;
   }
 
   .colBrand {

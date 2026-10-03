@@ -39,7 +39,7 @@ export const categories = [
       },
       {
         title: "Меблі та техніка",
-        text: "Перевезення меблів, та великогабаритних речей.",
+        text: "Перевезення меблів та великогабаритних речей.",
         image: "/images/services/furniture.jpg",
       },
     ],
@@ -148,7 +148,7 @@ export const footerColumns = [
     title: "Послуги",
     links: [
       { href: "#services", label: "Послуги" },
-      { href: "#business", label: "Партнерство" },
+      { href: "#partnership", label: "Партнерство" },
     ],
   },
   {

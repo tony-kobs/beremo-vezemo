@@ -2,6 +2,7 @@
 
 import { extraServices } from "@/data/site";
 import CallButton from "@/components/CallButton/CallButton";
+import heading from "@/styles/sectionHeading.module.css";
 import plate from "@/styles/titlePlate.module.css";
 import styles from "./Extra.module.css";
 
@@ -32,13 +33,11 @@ export default function Extra() {
   return (
     <section className={styles.section} id="extra">
       <div className="container">
-        <div className={styles.heading}>
-          <div
-            className={`${styles.bar} ${plate.plateBase} ${plate.rightPlate}`}
-          >
-            <h2 className={styles.title}>Не лише веземо</h2>
+        <div className={`${heading.block} ${heading.alignEnd} ${styles.heading}`}>
+          <div className={`${heading.bar} ${plate.plateBase} ${plate.rightPlate}`}>
+            <h2 className={`${heading.title} ${styles.title}`}>Не лише веземо</h2>
           </div>
-          <p className={styles.lead}>
+          <p className={`${heading.lead} ${heading.leadAccent}`}>
             Допоможемо з вантажем до та після перевезення.
           </p>
         </div>

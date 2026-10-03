@@ -1,4 +1,5 @@
 import { steps } from "@/data/site";
+import heading from "@/styles/sectionHeading.module.css";
 import plate from "@/styles/titlePlate.module.css";
 import styles from "./Steps.module.css";
 
@@ -6,13 +7,13 @@ export default function Steps() {
   return (
     <section className={styles.section} id="steps">
       <div className="container">
-      <div className={styles.intro}>
-        <div
-          className={`${styles.bar} ${plate.plateBase} ${plate.leftFlipped}`}
-        >
-          <h2 className={styles.title}>Чотири кроки і поїхали</h2>
+      <div className={`${heading.block} ${styles.intro}`}>
+        <div className={`${heading.bar} ${styles.bar} ${plate.plateBase} ${plate.leftFlipped}`}>
+          <h2 className={`${heading.title} ${heading.titleCompact} ${styles.title}`}>
+            Чотири кроки і поїхали
+          </h2>
         </div>
-        <p className={styles.lead}>
+        <p className={`${heading.lead} ${heading.leadLight} ${heading.leadEnd} ${styles.lead}`}>
           Як це працює? Все просто: телефонуєте, розповідаєте, узгоджуємо.
         </p>
       </div>

@@ -24,14 +24,14 @@
   letter-spacing: 0.02em;
   text-align: center;
   color: var(--white);
-  text-shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
+  text-shadow: var(--shadow);
 }
 
 .title span {
   display: block;
   font-size: 20px;
   line-height: 140%;
-  text-shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
+  text-shadow: var(--shadow);
 }
 
 .text {
@@ -44,7 +44,7 @@
   letter-spacing: 0.02em;
   text-align: center;
   color: var(--white);
-  text-shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
+  text-shadow: var(--shadow);
 }
 
 .button {

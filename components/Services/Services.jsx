@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { categories } from "@/data/site";
+import heading from "@/styles/sectionHeading.module.css";
 import plate from "@/styles/titlePlate.module.css";
 import styles from "./Services.module.css";
 
@@ -38,18 +39,23 @@ export default function Services() {
     if (id === active) return;
     setPanelDir(id === "business" ? "fromRight" : "fromLeft");
     setActive(id);
+
+    const nextHash = id === "business" ? "#business" : "#services";
+    if (window.location.hash !== nextHash) {
+      window.history.replaceState(null, "", nextHash);
+    }
   };
 
   return (
     <section className={styles.section} id="services">
       <div className={styles.container}>
-        <div className={styles.heading}>
-          <div
-            className={`${styles.bar} ${plate.plateBase} ${plate.rightPlate}`}
-          >
-            <h2 className={styles.title}>Наші послуги</h2>
+        <div className={`${heading.block} ${heading.alignEnd} ${styles.heading}`}>
+          <div className={`${heading.bar} ${plate.plateBase} ${plate.rightPlate}`}>
+            <h2 className={`${heading.title} ${styles.title}`}>Наші послуги</h2>
           </div>
-          <p className={styles.lead}>Перевеземо те, що важливо для вас</p>
+          <p className={`${heading.lead} ${heading.leadAccent}`}>
+            Перевеземо те, що важливо для вас
+          </p>
         </div>
 
         <div className={styles.folder}>
@@ -95,9 +101,11 @@ export default function Services() {
                 <article className={styles.card}>
                   <img
                     src={item.image}
-                    alt={item.title}
+                    alt={`${item.title} — вантажні перевезення, Зеленодольськ`}
                     loading="lazy"
                     decoding="async"
+                    width={640}
+                    height={800}
                   />
                   <div className={styles.cardBody}>
                     <h3 className={styles.cardTitle}>{item.title}</h3>

@@ -1,5 +1,6 @@
 import { cooperation } from "@/data/site";
 import CallButton from "@/components/CallButton/CallButton";
+import heading from "@/styles/sectionHeading.module.css";
 import plate from "@/styles/titlePlate.module.css";
 import styles from "./Cooperation.module.css";
 
@@ -12,15 +13,21 @@ const icons = {
 
 export default function Cooperation() {
   return (
-    <section className={styles.section} id="service">
+    <section className={styles.section} id="partnership">
       <div className={`container ${styles.inner}`}>
-        <div className={styles.intro}>
+        <div className={`${heading.block} ${styles.intro}`}>
           <div
-            className={`${styles.bar} ${plate.plateBase} ${plate.leftFlipped}`}
+            className={`${heading.bar} ${styles.bar} ${plate.plateBase} ${plate.leftFlipped}`}
           >
-            <h2 className={styles.title}>Постійна співпраця</h2>
+            <h2
+              className={`${heading.title} ${heading.titleCompact} ${styles.title}`}
+            >
+              Постійна співпраця
+            </h2>
           </div>
-          <p className={styles.lead}>
+          <p
+            className={`${heading.lead} ${heading.leadAccent} ${heading.leadEnd} ${styles.lead}`}
+          >
             Доставка, на яку може розраховувати ваш бізнес
           </p>
         </div>
@@ -65,7 +72,7 @@ export default function Cooperation() {
           <img
             src="/images/cooperation/mobile-1x.jpg"
             srcSet="/images/cooperation/mobile-1x.jpg 1x, /images/cooperation/mobile-2x.jpg 2x"
-            alt="Вантажники завантажують холодильник у бус біля магазину техніки"
+            alt="Вантажники завантажують холодильник у бус — доставка для магазинів, Зеленодольськ"
             loading="lazy"
             decoding="async"
           />

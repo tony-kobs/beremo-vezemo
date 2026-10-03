@@ -3,9 +3,9 @@ import styles from "./FinalCta.module.css";
 
 export default function FinalCta() {
   return (
-    <section className={styles.section}>
+    <section className={styles.section} aria-labelledby="final-cta-title">
       <div className="container">
-        <h2 className={styles.title}>
+        <h2 className={styles.title} id="final-cta-title">
           Треба перевезти?
           <span>Беремо й веземо.</span>
         </h2>

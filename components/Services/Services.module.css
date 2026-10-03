@@ -37,7 +37,7 @@
   margin: 0;
   padding: 10px 18px;
   border: 0;
-  background: #022d7c;
+  background: var(--akcent-2);
   color: #fff;
   font-family: var(--second-family);
   font-weight: 600;
@@ -79,7 +79,7 @@
   width: 44px;
   height: calc(100% + 3px - 26px);
   box-sizing: border-box;
-  background: #022d7c;
+  background: var(--akcent-2);
   border-top: 3px solid #f0ae02;
   border-right: 4px solid #f0ae02;
   border-top-right-radius: 7px;
@@ -109,7 +109,7 @@
   width: 44px;
   height: calc(100% + 3px - 26px);
   box-sizing: border-box;
-  background: #022d7c;
+  background: var(--akcent-2);
   border-top: 3px solid #f0ae02;
   border-left: 4px solid #f0ae02;
   border-top-left-radius: 7px;
@@ -145,7 +145,7 @@
   padding: 24px 5px 28px;
   border: 3px solid #f0ae02;
   border-radius: 28px;
-  background-color: #022d7c;
+  background-color: var(--akcent-2);
   box-shadow: 0 16px 28px rgba(2, 45, 124, 0.16);
 }
 
@@ -412,94 +412,25 @@
 }
 
 .heading {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
   margin-bottom: 32px;
 }
 
-.bar {
-  position: relative;
-  height: 48px;
-}
-
 .title {
-  position: relative;
-  z-index: 1;
-  margin: 0;
   padding: 12px 0 0 62px;
-  color: var(--white);
-  font-family: var(--second-family);
-  font-weight: 600;
-  font-size: 24px;
-  line-height: 32px;
-  letter-spacing: 0.02em;
-  white-space: nowrap;
-}
-
-.lead {
-  color: #022d7c;
-  font-family: var(--second-family);
-  font-weight: 600;
-  font-size: 18px;
-  line-height: 26px;
-  letter-spacing: 0.02em;
 }
 
 @media (min-width: 768px) {
-  .heading {
-    gap: 24px;
-  }
-
-  .bar,
-  .lead {
-    width: 646px;
-    margin-right: -32px;
-    margin-left: auto;
-  }
-
-  .bar {
-    position: relative;
-    height: 80px;
-  }
-
   .title {
     padding: 16px 0 0 90px;
-    font-size: 40px;
-    line-height: 48px;
-  }
-
-  .lead {
-    font-size: 24px;
-    line-height: 32px;
   }
 }
 
 @media (min-width: 1440px) {
   .heading {
-    gap: 32px;
     margin-bottom: 52px;
-  }
-
-  .bar,
-  .lead {
-    width: 926px;
-    margin-right: -80px;
-  }
-
-  .bar {
-    height: 98px;
   }
 
   .title {
     padding: 21px 0 0 108px;
-    font-size: 48px;
-    line-height: 56px;
-  }
-
-  .lead {
-    font-size: 30px;
-    line-height: 40px;
   }
 }

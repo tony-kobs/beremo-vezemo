@@ -107,7 +107,7 @@
   font-size: 16px;
   line-height: 1.38;
   letter-spacing: 0.02em;
-  text-shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
+  text-shadow: var(--shadow);
 }
 
 .messenger svg {

@@ -6,6 +6,7 @@
   --akcent-2: #022d7c;
   --black: #000113;
   --fon: #f9ebc5;
+  --shadow: 4px 4px 8px 0 rgba(6, 62, 135, 0.25);
   --font-family: var(--font-inter), "Inter", sans-serif;
   --second-family: var(--font-montserrat), "Montserrat Alternates", sans-serif;
   --header-h: 58px;
