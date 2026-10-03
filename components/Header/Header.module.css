@@ -6,13 +6,29 @@
 }
 
 .surface {
+  --glass-light-angle: -45deg;
+  --glass-light: 0.8;
+  --glass-refraction: 80;
+  --glass-depth: 82;
+  --glass-dispersion: 50;
+  --glass-frost: 100;
+  --glass-splay: 75;
+
   position: relative;
   z-index: 2;
   padding: 13px 16px;
   border: 0.4px solid var(--akcent);
   box-shadow:
-    inset 1px 1px 0 rgba(255, 255, 255, 0.8),
-    0 4px 8px 0 rgba(2, 45, 124, 0.2);
+    inset 1px 1px 0
+      rgba(
+        255,
+        255,
+        255,
+        calc(var(--glass-light) * var(--glass-refraction) / 100)
+      ),
+    inset -1px -1px 0 rgba(255, 255, 255, calc(var(--glass-refraction) * 0.002)),
+    0 calc(var(--glass-depth) * 0.08px) calc(var(--glass-depth) * 0.28px)
+      rgba(2, 45, 124, 0.22);
 }
 
 .surface::before {
@@ -22,18 +38,22 @@
   z-index: -1;
   background:
     linear-gradient(
-      -45deg,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(255, 255, 255, 0.16) 38%,
-      rgba(255, 255, 255, 0) 68%
+      var(--glass-light-angle),
+      rgba(255, 255, 255, var(--glass-light)) 0%,
+      rgba(255, 255, 255, calc(var(--glass-light) * 0.22))
+        calc(var(--glass-splay) * 0.45%),
+      rgba(255, 255, 255, 0) calc(var(--glass-splay) * 1%)
     ),
     linear-gradient(
-      89.98deg,
-      rgba(214, 225, 245, 0.16) 14.15%,
-      rgba(2, 32, 93, 0.16) 20.97%
+      calc(var(--glass-light-angle) + 135deg),
+      rgba(214, 225, 245, calc(var(--glass-dispersion) / 280)) 0%,
+      rgba(2, 45, 124, calc(var(--glass-dispersion) / 420)) 55%,
+      rgba(240, 174, 2, calc(var(--glass-dispersion) / 900)) 100%
     );
-  -webkit-backdrop-filter: blur(40px) saturate(1.35);
-  backdrop-filter: blur(40px) saturate(1.35);
+  -webkit-backdrop-filter: blur(calc(var(--glass-frost) * 0.4px))
+    saturate(calc(1 + var(--glass-refraction) / 200));
+  backdrop-filter: blur(calc(var(--glass-frost) * 0.4px))
+    saturate(calc(1 + var(--glass-refraction) / 200));
   pointer-events: none;
 }
 
@@ -57,6 +77,8 @@
   display: flex;
   flex-shrink: 0;
   z-index: 3;
+  --logo-ink: var(--akcent-2);
+  --logo-accent: var(--akcent);
   transform: translateX(var(--drive, 0px));
   transition: transform 0.9s cubic-bezier(0.22, 0.85, 0.28, 1);
 }
@@ -65,10 +87,6 @@
   display: block;
   width: 72px;
   height: 26px;
-}
-
-.logoLink svg path[fill="#022D7C"] {
-  fill: var(--white);
 }
 
 .callSlot {
@@ -102,7 +120,7 @@ a.headerCall {
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--white);
+  color: var(--akcent-2);
 }
 
 .burger svg {
@@ -110,6 +128,14 @@ a.headerCall {
 }
 
 .menu {
+  --glass-light-angle: -45deg;
+  --glass-light: 0.8;
+  --glass-refraction: 80;
+  --glass-depth: 82;
+  --glass-dispersion: 50;
+  --glass-frost: 100;
+  --glass-splay: 75;
+
   position: fixed;
   inset: 0;
   z-index: 1;
@@ -128,34 +154,102 @@ a.headerCall {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    -45deg,
-    rgba(255, 255, 255, 0.8) 0%,
-    rgba(255, 255, 255, 0.16) 38%,
-    rgba(255, 255, 255, 0.08) 100%
-  );
-  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.8);
+  background:
+    linear-gradient(
+      var(--glass-light-angle),
+      rgba(255, 255, 255, var(--glass-light)) 0%,
+      rgba(255, 255, 255, calc(var(--glass-light) * 0.22))
+        calc(var(--glass-splay) * 0.45%),
+      rgba(255, 255, 255, 0.08) calc(var(--glass-splay) * 1%)
+    ),
+    linear-gradient(
+      calc(var(--glass-light-angle) + 135deg),
+      rgba(214, 225, 245, calc(var(--glass-dispersion) / 280)) 0%,
+      rgba(2, 45, 124, calc(var(--glass-dispersion) / 420)) 100%
+    );
+  box-shadow: inset 1px 1px 0
+    rgba(
+      255,
+      255,
+      255,
+      calc(var(--glass-light) * var(--glass-refraction) / 100)
+    );
   pointer-events: none;
 }
 
 .menuOpen::before {
-  -webkit-backdrop-filter: blur(40px) saturate(1.35);
-  backdrop-filter: blur(40px) saturate(1.35);
+  -webkit-backdrop-filter: blur(calc(var(--glass-frost) * 0.4px))
+    saturate(calc(1 + var(--glass-refraction) / 200));
+  backdrop-filter: blur(calc(var(--glass-frost) * 0.4px))
+    saturate(calc(1 + var(--glass-refraction) / 200));
 }
 
 .menuInner {
   position: relative;
   z-index: 1;
-  padding: 86px 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  padding: 86px 18px 28px;
+}
+
+.menuNav {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.menuFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 24px;
+}
+
+a.menuCall {
+  width: 100%;
+  max-width: 320px;
+  padding: 16px 24px;
+  font-size: 20px;
+  line-height: 140%;
+}
+
+.menuMessengers {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.menuMessenger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--akcent-2);
+  font-family: var(--second-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.38;
+  letter-spacing: 0.02em;
+  filter: drop-shadow(0 2px 4px rgba(2, 45, 124, 0.18));
+}
+
+.menuMessenger svg {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
 }
 
 .menuTitle {
-  margin-bottom: 18px;
-  color: var(--white);
+  margin-bottom: 8px;
+  color: var(--akcent-2);
   font-family: var(--second-family);
   font-weight: 600;
-  font-size: 22px;
-  line-height: 1.2;
+  font-size: 18px;
+  line-height: 1.44;
 }
 
 .menuList {
@@ -166,13 +260,13 @@ a.headerCall {
 .menuList a {
   position: relative;
   display: block;
-  padding: 14px 0;
+  padding: 8px 0 4px;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 150%;
   letter-spacing: 0.02em;
-  color: var(--white);
+  color: var(--akcent-2);
 }
 
 .menuList a::after {
@@ -181,8 +275,9 @@ a.headerCall {
   right: 0;
   bottom: 0;
   left: 0;
-  height: 1px;
-  background-color: rgba(255, 255, 255, 0.85);
+  max-width: 258px;
+  height: 2px;
+  background-color: var(--akcent-2);
 }
 
 .menuList a:hover,
@@ -208,15 +303,12 @@ a.headerCall {
     justify-content: center;
     width: 90px;
     height: 40px;
+    --logo-ink: var(--akcent-2);
   }
 
   .logoLink svg {
     width: 90px;
     height: 33px;
-  }
-
-  .logoLink svg path[fill="#022D7C"] {
-    fill: #022d7c;
   }
 
   .callSlot {
@@ -262,6 +354,7 @@ a.headerCall {
     max-width: 1440px;
     margin: 0 auto;
   }
+
   .logoLink {
     width: 148px;
     height: 54px;
@@ -273,23 +366,23 @@ a.headerCall {
   }
 
   .nav {
-    position: absolute;
-    top: 50%;
-    left: 24px;
+    position: relative;
     z-index: 1;
-    display: block;
-    margin-left: 0;
-    pointer-events: none;
-    transform: translateY(-50%);
-  }
-
-  .navShown {
+    display: flex;
+    flex: 1 1;
+    align-items: center;
+    justify-content: flex-start;
+    min-width: 0;
+    margin: 0 24px;
     pointer-events: auto;
+    padding: 0px 62px;
   }
 
   .navList {
     display: flex;
     align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 26px;
   }
 
@@ -298,44 +391,78 @@ a.headerCall {
     font-size: 20px;
     font-weight: 500;
     white-space: nowrap;
-    opacity: 0;
-    transform: translateX(-18px);
-    transition:
-      opacity 0.4s ease,
-      transform 0.45s ease,
-      color 0.2s ease;
+    transition: color 0.35s ease;
   }
 
-  .navShown .navList a {
-    opacity: 1;
-    transform: none;
+  /* Color flips left→right as the logo drives across */
+  .navDriven .navList a {
+    color: var(--akcent-2);
   }
 
-  .navShown .navList li:nth-child(2) a {
-    transition-delay: 0.06s;
+  .navDriven .navList li:nth-child(1) a {
+    transition-delay: 0.08s;
   }
 
-  .navShown .navList li:nth-child(3) a {
-    transition-delay: 0.12s;
-  }
-
-  .navShown .navList li:nth-child(4) a {
+  .navDriven .navList li:nth-child(2) a {
     transition-delay: 0.18s;
   }
 
-  .navShown .navList li:nth-child(5) a {
-    transition-delay: 0.24s;
+  .navDriven .navList li:nth-child(3) a {
+    transition-delay: 0.28s;
   }
 
-  .navShown .navList li:nth-child(6) a {
-    transition-delay: 0.3s;
+  .navDriven .navList li:nth-child(4) a {
+    transition-delay: 0.38s;
   }
 
-  .navShown .navList li:nth-child(7) a {
-    transition-delay: 0.36s;
+  .navDriven .navList li:nth-child(5) a {
+    transition-delay: 0.48s;
+  }
+
+  .navDriven .navList li:nth-child(6) a {
+    transition-delay: 0.58s;
+  }
+
+  .navDriven .navList li:nth-child(7) a {
+    transition-delay: 0.68s;
+  }
+
+  /* Reverse order when logo drives back */
+  .nav:not(.navDriven) .navList li:nth-child(1) a {
+    transition-delay: 0.68s;
+  }
+
+  .nav:not(.navDriven) .navList li:nth-child(2) a {
+    transition-delay: 0.58s;
+  }
+
+  .nav:not(.navDriven) .navList li:nth-child(3) a {
+    transition-delay: 0.48s;
+  }
+
+  .nav:not(.navDriven) .navList li:nth-child(4) a {
+    transition-delay: 0.38s;
+  }
+
+  .nav:not(.navDriven) .navList li:nth-child(5) a {
+    transition-delay: 0.28s;
+  }
+
+  .nav:not(.navDriven) .navList li:nth-child(6) a {
+    transition-delay: 0.18s;
+  }
+
+  .nav:not(.navDriven) .navList li:nth-child(7) a {
+    transition-delay: 0.08s;
+  }
+
+  .navList a:hover,
+  .navList a:focus-visible {
+    color: var(--akcent);
   }
 
   .callSlot {
+    margin-left: 0;
     margin-right: 0;
   }
 
@@ -349,5 +476,10 @@ a.headerCall {
   .logoLink,
   .navList a {
     transition: none;
+  }
+
+  .navDriven .navList a,
+  .nav:not(.navDriven) .navList a {
+    transition-delay: 0s;
   }
 }

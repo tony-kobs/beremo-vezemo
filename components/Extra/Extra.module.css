@@ -236,6 +236,7 @@
 }
 
 .bar {
+  position: relative;
   height: 48px;
 }
 

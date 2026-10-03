@@ -32,16 +32,14 @@
   width: fit-content;
   color: var(--white);
   text-decoration: none;
+  --logo-ink: var(--white);
+  --logo-accent: var(--akcent);
 }
 
 .brand svg {
   display: block;
   width: 112px;
   height: 40px;
-}
-
-.brand svg path[fill="#022D7C"] {
-  fill: var(--white);
 }
 
 .places,
@@ -154,8 +152,8 @@
   }
 
   .top {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px 32px;
+    display: flex;
+    justify-content: space-between;
     align-items: start;
   }
 

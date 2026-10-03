@@ -18,20 +18,9 @@ function LegendMark({ id }) {
           className={styles.routesIcon}
           viewBox="0 0 42 16"
           fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
         >
-          <path
-            d="M11 2.5L2.5 8L11 13.5"
-            stroke="currentColor"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          <rect x="14.5" y="6.5" width="8" height="3" fill="currentColor" />
-          <path
-            d="M26.5 6.5H37a1.5 1.5 0 0 1 0 3H26.5V6.5Z"
-            fill="currentColor"
-          />
+          <use href="/images/icons/sprite.svg#routes" />
         </svg>
       </span>
     );

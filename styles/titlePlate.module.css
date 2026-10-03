@@ -6,15 +6,64 @@
   position: absolute;
   z-index: 0;
   pointer-events: none;
-  clip-path: polygon(13.37% 0, 100% 0, 100% 77.42%, 5.77% 77.42%);
-}
-
-.plateBase::before {
-  background: rgba(1, 43, 86, 0.25);
-  filter: blur(3px);
+  max-width: none;
 }
 
 .plateBase::after {
+  box-shadow: inset 1px 1px 2px #fffefe;
+}
+
+/* Soft shadow: blur baked into SVG so edges stay feathered
+   (CSS clip-path would cut filter: blur back to hard edges) */
+.plateBase::before {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='s' x='-35%25' y='-55%25' width='170%25' height='210%25'%3E%3CfeGaussianBlur stdDeviation='4'/%3E%3C/filter%3E%3C/defs%3E%3Cpolygon points='13.37,0 100,0 100,77.42 5.77,77.42' fill='%23012b56' opacity='0.45' filter='url(%23s)'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+}
+
+/* Cooperation, Steps: blue on the left (pinned to section), slant on the right */
+.leftFlipped::before,
+.leftFlipped::after {
+  top: 0;
+  /* Blue edge → section/viewport left; title bar stays put */
+  left: calc(50% - 50vw);
+  width: calc(50vw + 50% + 6.13%);
+  height: 129.17%;
+}
+
+.leftFlipped::before {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cfilter id='s' x='-35%25' y='-55%25' width='170%25' height='210%25'%3E%3CfeGaussianBlur stdDeviation='4'/%3E%3C/filter%3E%3C/defs%3E%3Cpolygon points='0,0 86.63,0 94.23,77.42 0,77.42' fill='%23012b56' opacity='0.45' filter='url(%23s)'/%3E%3C/svg%3E")
+    no-repeat center / 100% 100%;
+  transform: translate(20px, 5px);
+}
+
+.leftFlipped::after {
+  clip-path: polygon(0 0, 94.23% 0, 99.63% 77.42%, 0 77.42%);
+  background: linear-gradient(
+    90deg,
+    #022d7c 0.6%,
+    #0452e2 43.4%,
+    #f0ae02 72.8%,
+    #f0ae02 100%
+  );
+}
+
+/* Services, Extra, Geography: slant on the left, blue on the right
+   (blue edge pinned to section/viewport right) */
+.rightPlate::before,
+.rightPlate::after {
+  top: 0;
+  /* Blue edge → section/viewport left; title bar stays put */
+  right: calc(50% - 50vw);
+  width: calc(50vw + 50% + 14.13%);
+  height: 129.17%;
+}
+
+.rightPlate::before {
+  transform: translate(-5px, 5px);
+}
+
+.rightPlate::after {
+  clip-path: polygon(13.37% 0, 100% 0, 100% 77.42%, 5.77% 77.42%);
   background: linear-gradient(
     90deg,
     #f0ae02 0%,
@@ -22,45 +71,21 @@
     #0452e2 56.6%,
     #022d7c 99.4%
   );
-  box-shadow: inset 1px 1px 2px #fffefe;
 }
 
-/* Cooperation, Steps: bar on the left, slant on the right */
-.leftFlipped::before,
-.leftFlipped::after {
-  top: 0;
-  left: 24px;
-  width: 106.13%;
-  height: 129.17%;
-}
+/* Wide plates stretch the SVG blur — switch to px-based shadow at desktop */
+@media (min-width: 1440px) {
+  .rightPlate::before {
+    background: rgba(1, 43, 86, 0.35);
+    clip-path: polygon(13.37% 0, 100% 0, 100% 77.42%, 5.77% 77.42%);
+    filter: blur(4px);
+    transform: translate(-10px, 5px);
+  }
 
-.leftFlipped::before {
-  transform: scaleX(-1) translate(-16px, 8px);
-}
-
-.leftFlipped::after {
-  transform: scaleX(-1);
-}
-
-/* Services, Extra, Geography: bar on the right, slant on the left */
-.rightPlate::before,
-.rightPlate::after {
-  top: 0;
-  left: calc(50% - 50vw - 1.13vw);
-  width: calc(100vw + 6.13vw);
-  height: 62px;
-  max-width: none;
-}
-
-.rightPlate::before {
-  transform: translate(-16px, 8px);
-}
-
-@media (min-width: 768px) {
-  .rightPlate::before,
-  .rightPlate::after {
-    left: -6.13%;
-    width: 106.13%;
-    height: 129.17%;
+  .leftFlipped::before {
+    background: rgba(1, 43, 86, 0.35);
+    clip-path: polygon(0 0, 94.23% 0, 99.63% 77.42%, 0 77.42%);
+    filter: blur(4px);
+    transform: translate(10px, 5px);
   }
 }
