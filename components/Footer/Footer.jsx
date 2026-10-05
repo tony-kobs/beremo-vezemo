@@ -17,15 +17,10 @@ export default function Footer() {
     <footer className={styles.footer} id="contacts">
       <div className={`container ${styles.inner}`}>
         <div className={styles.top}>
+          <a className={styles.brand} href="#top" aria-label="Беремо й веземо">
+            <Logo />
+          </a>
           <div className={styles.colBrand}>
-            <a
-              className={styles.brand}
-              href="#top"
-              aria-label="Беремо й веземо"
-            >
-              <Logo />
-            </a>
-
             <ul className={styles.places}>
               {places.map((place) => (
                 <li key={place}>{place}</li>
@@ -43,24 +38,18 @@ export default function Footer() {
             </ul>
 
             <div className={styles.navColumns}>
-              {footerColumns.map((column) => {
-                const [titleLink, ...childLinks] = column.links;
-
-                return (
-                  <div className={styles.navColumn} key={column.title}>
-                    <a className={styles.columnTitle} href={titleLink.href}>
-                      {column.title}
-                    </a>
-                    <ul className={styles.links}>
-                      {childLinks.map((link) => (
-                        <li key={link.href}>
-                          <a href={link.href}>{link.label}</a>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                );
-              })}
+              {footerColumns.map((column) => (
+                <ul
+                  className={`${styles.links} ${styles.navColumn}`}
+                  key={column.title}
+                >
+                  {column.links.map((link) => (
+                    <li key={link.href}>
+                      <a href={link.href}>{link.label}</a>
+                    </li>
+                  ))}
+                </ul>
+              ))}
             </div>
           </nav>
 
