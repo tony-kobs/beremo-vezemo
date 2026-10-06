@@ -79,8 +79,13 @@
   z-index: 3;
   --logo-ink: var(--akcent-2);
   --logo-accent: var(--akcent);
+  --drive-ms: 900ms;
   transform: translateX(var(--drive, 0px));
-  transition: transform 0.9s cubic-bezier(0.22, 0.85, 0.28, 1);
+  transition: transform var(--drive-ms) cubic-bezier(0.22, 0.85, 0.28, 1);
+}
+
+.logoBack {
+  transition-timing-function: cubic-bezier(0.62, 0.02, 0.2, 1);
 }
 
 .logoLink svg {
@@ -391,69 +396,16 @@ a.menuCall {
     font-size: 16px;
     font-weight: 400;
     white-space: nowrap;
-    transition: color 0.35s ease;
+    transition: color 0.7s ease;
+    transition-delay: 0s;
   }
 
-  /* Color flips left→right as the logo drives across */
+  /* Coasting color wave: starts as the logo brakes, then keeps going */
   .navDriven .navList a {
     color: var(--akcent-2);
-  }
-
-  .navDriven .navList li:nth-child(1) a {
-    transition-delay: 0.08s;
-  }
-
-  .navDriven .navList li:nth-child(2) a {
-    transition-delay: 0.18s;
-  }
-
-  .navDriven .navList li:nth-child(3) a {
-    transition-delay: 0.28s;
-  }
-
-  .navDriven .navList li:nth-child(4) a {
-    transition-delay: 0.38s;
-  }
-
-  .navDriven .navList li:nth-child(5) a {
-    transition-delay: 0.48s;
-  }
-
-  .navDriven .navList li:nth-child(6) a {
-    transition-delay: 0.58s;
-  }
-
-  .navDriven .navList li:nth-child(7) a {
-    transition-delay: 0.68s;
-  }
-
-  /* Reverse order when logo drives back */
-  .nav:not(.navDriven) .navList li:nth-child(1) a {
-    transition-delay: 0.68s;
-  }
-
-  .nav:not(.navDriven) .navList li:nth-child(2) a {
-    transition-delay: 0.58s;
-  }
-
-  .nav:not(.navDriven) .navList li:nth-child(3) a {
-    transition-delay: 0.48s;
-  }
-
-  .nav:not(.navDriven) .navList li:nth-child(4) a {
-    transition-delay: 0.38s;
-  }
-
-  .nav:not(.navDriven) .navList li:nth-child(5) a {
-    transition-delay: 0.28s;
-  }
-
-  .nav:not(.navDriven) .navList li:nth-child(6) a {
-    transition-delay: 0.18s;
-  }
-
-  .nav:not(.navDriven) .navList li:nth-child(7) a {
-    transition-delay: 0.08s;
+    transition-duration: 0.55s;
+    transition-timing-function: cubic-bezier(0.22, 0.7, 0.28, 1);
+    transition-delay: var(--lag, 0s);
   }
 
   .navList a:hover,
@@ -478,8 +430,7 @@ a.menuCall {
     transition: none;
   }
 
-  .navDriven .navList a,
-  .nav:not(.navDriven) .navList a {
+  .navList a {
     transition-delay: 0s;
   }
 }

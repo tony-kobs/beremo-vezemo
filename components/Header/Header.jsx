@@ -7,12 +7,19 @@ import Logo from "@/components/Logo/Logo";
 import Messengers from "@/components/Messengers/Messengers";
 import styles from "./Header.module.css";
 
+const DRIVE_OUT_MS = 900;
+const DRIVE_PARK_MS = 360;
+const DRIVE_BACK_MS = 2400;
+const TINT_MS = 2500;
+const LINK_GAP = 80;
+
 export default function Header() {
   const [open, setOpen] = useState(false);
-  const [drove, setDrove] = useState(false);
+  const [phase, setPhase] = useState("idle");
+  const [tint, setTint] = useState(false);
   const [shift, setShift] = useState(0);
   const logoRef = useRef(null);
-  const callRef = useRef(null);
+  const navRef = useRef(null);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -33,27 +40,52 @@ export default function Header() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  const measureDrive = () => {
+    const logo = logoRef.current;
+    const link = navRef.current?.querySelector("a");
+    const bar = logo?.offsetParent;
+    if (!logo || !link || !(bar instanceof HTMLElement)) return 0;
+
+    const barLeft = bar.getBoundingClientRect().left;
+    const linkLeft = link.getBoundingClientRect().left - barLeft;
+    const logoRight = logo.offsetLeft + logo.offsetWidth;
+    return Math.max(0, Math.round(linkLeft - logoRight - LINK_GAP));
+  };
+
   useEffect(() => {
-    if (!drove) return;
-
-    const update = () => {
-      const logo = logoRef.current;
-      const call = callRef.current;
-      if (!logo || !call) return;
-      const distance = call.offsetLeft - logo.offsetLeft - logo.offsetWidth - 16;
-      setShift(Math.max(0, distance));
-    };
-
+    const update = () => setShift(measureDrive());
     update();
+    document.fonts?.ready.then(update);
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
-  }, [drove]);
+  }, []);
+
+  useEffect(() => {
+    if (phase !== "out") return undefined;
+    const id = window.setTimeout(() => setPhase("back"), DRIVE_OUT_MS + DRIVE_PARK_MS);
+    return () => window.clearTimeout(id);
+  }, [phase]);
+
+  useEffect(() => {
+    if (phase !== "back") return undefined;
+    const id = window.setTimeout(() => setPhase("idle"), DRIVE_BACK_MS);
+    return () => window.clearTimeout(id);
+  }, [phase]);
+
+  useEffect(() => {
+    if (!tint) return undefined;
+    const id = window.setTimeout(() => setTint(false), TINT_MS);
+    return () => window.clearTimeout(id);
+  }, [tint]);
 
   useEffect(() => {
     const media = window.matchMedia("(min-width: 1440px)");
     const onChange = () => {
       if (media.matches) setOpen(false);
-      if (!media.matches) setDrove(false);
+      if (!media.matches) {
+        setPhase("idle");
+        setTint(false);
+      }
     };
 
     media.addEventListener("change", onChange);
@@ -65,7 +97,14 @@ export default function Header() {
   const onLogoClick = (event) => {
     if (window.matchMedia("(min-width: 1440px)").matches) {
       event.preventDefault();
-      setDrove((value) => !value);
+      if (phase !== "idle") return;
+      if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+      const distance = measureDrive();
+      if (distance < 8) return;
+      setShift(distance);
+      setTint(true);
+      setPhase("out");
       return;
     }
 
@@ -78,30 +117,36 @@ export default function Header() {
         <div className={styles.bar}>
           <a
             ref={logoRef}
-            className={styles.logoLink}
+            className={`${styles.logoLink} ${phase === "back" ? styles.logoBack : ""}`}
             href="#top"
-            style={{ "--drive": `${drove ? shift : 0}px` }}
+            style={{
+              "--drive": `${phase === "out" ? shift : 0}px`,
+              "--drive-ms": `${phase === "back" ? DRIVE_BACK_MS : DRIVE_OUT_MS}ms`,
+            }}
             aria-label="Беремо й веземо"
-            aria-expanded={drove}
+            aria-expanded={phase !== "idle"}
             onClick={onLogoClick}
           >
-            <Logo driving={drove} />
+            <Logo driving={phase !== "idle"} />
           </a>
 
           <nav
-            className={`${styles.nav} ${drove ? styles.navDriven : ""}`}
+            ref={navRef}
+            className={`${styles.nav} ${tint ? styles.navDriven : ""}`}
             aria-label="Головне меню"
           >
             <ul className={styles.navList}>
-              {menu.map((item) => (
+              {menu.map((item, index) => (
                 <li key={item.href}>
-                  <a href={item.href}>{item.label}</a>
+                  <a href={item.href} style={{ "--lag": `${0.75 + index * 0.2}s` }}>
+                    {item.label}
+                  </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <span ref={callRef} className={styles.callSlot}>
+          <span className={styles.callSlot}>
             <CallButton className={styles.headerCall} />
           </span>
 
