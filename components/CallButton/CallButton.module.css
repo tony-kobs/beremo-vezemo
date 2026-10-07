@@ -112,6 +112,30 @@
   .wide {
     width: auto;
   }
+
+  /* Press keeps the hover label; the number appears only after click. */
+  .button:active:not(.revealed) {
+    box-shadow: 6px 6px 12px 0 rgba(69, 50, 1, 0.25);
+    background-image: linear-gradient(
+      90deg,
+      #ffc93c 0%,
+      #e7a701 35%,
+      #ffc93c 65%,
+      #e7a701 100%
+    );
+    background-size: 220% 100%;
+  }
+
+  .button:hover:active:not(.revealed) .labelHover,
+  .button:focus-visible:active:not(.revealed) .labelHover {
+    opacity: 1;
+  }
+
+  .button:hover:active:not(.revealed) .labelDefault,
+  .button:focus-visible:active:not(.revealed) .labelDefault,
+  .button:active:not(.revealed) .labelActive {
+    opacity: 0;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

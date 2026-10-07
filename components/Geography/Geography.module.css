@@ -233,9 +233,13 @@
   .mapFrame {
     width: 100%;
     max-width: 730px;
-    max-height: 490px;
+    max-height: 514px;
     border-radius: 32px;
     flex-grow: 1;
+  }
+
+  .map {
+    max-height: 514px;
   }
 
   .map img {
@@ -245,9 +249,12 @@
     object-position: center;
   }
 
-  .note p,
-  .legendItem {
-    font-size: 16px;
+  .note {
+    margin-bottom: 32px;
+  }
+
+  .note p {
+    font-size: 20px;
   }
 }
 
